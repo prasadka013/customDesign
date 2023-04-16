@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <h3>Login</h3>
+        <div class="user-name">
+            <label class="tags" >Email </label><br>
+            <input id="txtEmail" class="form-items" type="text" value="" /><br>
+            </div>
+            <div class="pass">
+            <label class="tags" >Password </label><br>
+            <input id="txtPassword" class="form-items" type="password" />
+        </div>
+        <div class="login-btn">
+             <button id="btnLogin" type="submit" class="btn" >Login</button>
+             <a href="signup.html">Create Account</a>
+        </div>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAHulvliwBoLxv9TiGPvXGjrIMPo1bVfBs",
+            authDomain: "mini-project-acbef.firebaseapp.com",
+            projectId: "mini-project-acbef",
+            storageBucket: "mini-project-acbef.appspot.com",
+            messagingSenderId: "919915545532",
+            appId: "1:919915545532:web:d856cb2268f2739ad921b9",
+            measurementId: "G-ECQ2TNBM5S"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+
+
+        btnLogin.addEventListener('click', (e) => {
+            
+        var email= document.getElementById('txtEmail').value;
+        var password= document.getElementById('txtPassword').value;
+
+        if (email=="Admin" && password=="Admin") 
+                window.location= "admin.html";
+        
+         signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.localStorage.setItem('user', JSON.stringify(user));
+            alert('login sucessful')
+            window.location= "index.html";
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+        });
+
+        });
+
+    
+</script>
+</body>
+</html>

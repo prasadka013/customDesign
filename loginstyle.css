@@ -1,0 +1,82 @@
+body{
+    background-color: lightblue;
+}
+
+.form-wrapper{
+   
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 130px;
+    color: rgba(0, 0,0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.616);
+    border-radius: 8px;
+    padding: 20px;
+}
+.form-wrapper > h3{
+    color: black;
+    text-align: center;
+    font-size: 28px;
+}
+
+.user-name{
+    margin: 0 auto;
+    padding: 0   20px;
+   
+}
+.pass{
+    padding: 20px;
+}
+
+input{
+    margin-top: 8px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(126, 118, 118, 0.212);
+    width: 250px;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.tags{
+    text-transform: capitalize;
+    font-weight: 100;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.774);
+    font-family: 'Google Sans', 'Roboto', Helvetica, Arial, sans-serif;
+}
+.login-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    padding: 10px 30px; 
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0,0, 0.2);
+    background-color: rgba(50, 127, 216, 0.781);
+    cursor: pointer;
+    font-weight: 700;
+}
+.btn:hover{
+    background-color: white;
+}
+a{
+    margin-top: 15px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+    .form-wrapper {
+      margin-top: 60%; 
+    }
+  }
